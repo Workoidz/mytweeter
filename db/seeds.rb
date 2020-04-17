@@ -24,3 +24,17 @@ Tweet.create! [
 				{tweet: "Wow.. !", user_id: User.last.id}
 				
 ]
+
+FollowingUser.create! [
+							{following_user_id: User.first.id, user_id: User.second.id},
+							{following_user_id: User.last.id, user_id: User.second.id},
+							{following_user_id: User.first.id, user_id: User.last.id}
+
+]
+
+FollowerUser.create! [
+							{follower_user_id: User.first.id, user_id: User.second.id},
+							{follower_user_id: User.last.id, user_id: User.second.id},
+							{follower_user_id: User.first.id, user_id: User.last.id}
+
+]
