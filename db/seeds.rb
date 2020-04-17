@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.destroy_all
+
+User.create! [
+				{name: "Ritesh Kapoor",email: "ritesh@workoidz.com"},
+				{name: "Deepak Sharma",email: "deepak@9techies.com"},
+				{name: "Ravi Sharma",email: "ravi@9techies.com"}
+
+]
+
+Tweet.create! [
+				{tweet: "Wow.. !", user_id: User.first.id},
+				{tweet: "Wow, Amazing.. !", user_id: User.first.id},
+				{tweet: "Wow.. lets do  !", user_id: User.last.id},
+				{tweet: "Wow.. !", user_id: User.last.id},
+				{tweet: "Wow.. !", user_id: User.last.id}
+				
+]
