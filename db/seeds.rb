@@ -10,9 +10,9 @@
 User.destroy_all
 
 User.create! [
-				{name: "Ritesh Kapoor",email: "ritesh@workoidz.com"},
-				{name: "Deepak Sharma",email: "deepak@9techies.com"},
-				{name: "Ravi Sharma",email: "ravi@9techies.com"}
+				{name: "Ritesh Kapoor",email: "ritesh@workoidz.com",password: "123"},
+				{name: "Deepak Sharma",email: "deepak@9techies.com", password: "123"},
+				{name: "Ravi Sharma",email: "ravi@9techies.com", password: "123"}
 
 ]
 
@@ -21,20 +21,7 @@ Tweet.create! [
 				{tweet: "Wow, Amazing.. !", user_id: User.first.id},
 				{tweet: "Wow.. lets do  !", user_id: User.last.id},
 				{tweet: "Wow.. !", user_id: User.last.id},
-				{tweet: "Wow.. !", user_id: User.last.id}
+				{tweet: "Wow.. !", user_id: User.second.id}
 				
 ]
 
-FollowingUser.create! [
-							{following_user_id: User.first.id, user_id: User.second.id},
-							{following_user_id: User.last.id, user_id: User.second.id},
-							{following_user_id: User.first.id, user_id: User.last.id}
-
-]
-
-FollowerUser.create! [
-							{follower_user_id: User.first.id, user_id: User.second.id},
-							{follower_user_id: User.last.id, user_id: User.second.id},
-							{follower_user_id: User.first.id, user_id: User.last.id}
-
-]

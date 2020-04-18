@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+     <!--<th>Password digest</th>-->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <% if User.find_by(id: session[:user_id]).id != user.id then %>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+
+          <% if User.find_by(id: session[:user_id]).follower_users.find_by(follower_user_id: user.id) then  %>
+             <b> <%= link_to "UNfollow", {:controller => "user_follow", :action => "change_status", :user_id => user.id }%></b>
+          <% else %>            
+             <b> <%= link_to "follow", {:controller => "user_follow", :action => "change_status", :user_id => user.id } %></b>
+          <% end %>              
+
+        </td>   
+       <%end%>
+     <!--   <td><%= user.password_digest %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--<%= link_to 'New User', new_user_path %>-->
