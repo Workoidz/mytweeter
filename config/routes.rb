@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
  	get '/change_status' => 'user_follow#change_status', as: 'change_status'
  	get '/myfeed' => 'myfeed#show', as: 'myfeed'
+ 	root :to => "sessions#new"
 
 
 end
